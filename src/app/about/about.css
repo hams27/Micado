@@ -1,0 +1,171 @@
+/* ====================== GLOBAL ====================== */
+section {
+  padding: 80px !important;
+}
+.sec1 {
+  /* padding-top: 30px; */
+  text-align: center;
+  font-size: xx-large; 
+}
+.sec1 h1 {
+  color: #ff6f00;
+  font-weight: bold;
+  padding-top: 100px;
+}
+
+/* ====================== SECTION 2: من نحن ====================== */
+.sec2 { 
+  display: flex;
+  justify-content: space-around; 
+  align-items: flex-start;
+  gap: 40px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+/* نص القسم الأيسر */
+.sec2 > div:first-child {
+  flex: 1 1 45%;
+  animation: fadeRight 1s ease forwards;
+  opacity: 0;
+}
+
+/* الصورة على اليمين */
+.sec2 > div:last-child {
+  flex: 1 1 45%;  
+  animation: fadeLeft 1s ease forwards;
+  opacity: 0;
+}
+.sec2 .div2 {
+  direction: ltr; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sec2 .div2:hover {
+  transform: scale(1.05);
+}
+
+/* عناوين القسم */
+.sec2 h1, .sec2 h2 {
+  margin-bottom: 15px;
+}
+
+/* ====================== SECTION 3: الرؤية والرسالة ====================== */
+.sec3 {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 40px;
+  padding: 80px 0 120px 0;
+  justify-items: center;
+}
+.sec3 div {
+  padding: 30px; 
+  border-radius: 15px; 
+  width: 450px; 
+  text-align: center;
+  border: 1px solid #ff6f00;
+  opacity: 0;
+  transform: scale(0.85); 
+  animation: pop 0.8s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.sec3 div:nth-child(1) { animation-delay: 1s; }
+.sec3 div:nth-child(2) { animation-delay: 2s; }
+
+/* Hover Effect */
+.sec3 div:hover { 
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 0 20px rgba(86, 85, 85, 0.5); 
+}
+.sec3 div img { transition: transform 0.3s ease; }
+.sec3 div:hover img { transform: scale(1.2) rotate(-5deg); }
+
+/* عناوين */
+.sec3 h3:first-of-type {
+  opacity: 0; 
+  animation: fadeDown 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+/* ====================== SECTION 4: القيم ====================== */
+.sec4 {
+  padding: 30px; 
+}
+.sec4 h1 {
+  text-align: center; 
+}
+
+/* Timeline القيم */
+.values-timeline {
+  position: relative;
+  margin: 20px 0;
+  padding-left: 30px;
+}
+.value-item {
+  position: relative;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #e2e2e2;
+  line-height: 1.7;
+}
+.value-item::before {
+  content: "";
+  position: absolute;
+  right: -31px;
+  top: 18px;
+  width: 12px;
+  height: 12px;
+  background: #ff6f00;
+  border-radius: 50%;
+}
+.value-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -25px;
+  top: 34px;
+  width: 2px;
+  height: 40px;
+  background: #ff6f00;
+}
+
+/* ====================== ANIMATIONS ====================== */
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ====================== RESPONSIVE ====================== */
+@media (max-width: 900px) {
+  .sec2 { flex-direction: column; }
+  .sec2 > div { flex: 1 1 100%; }
+  .sec3 { grid-template-columns: 1fr; margin-right: 0; gap: 20px; }
+  .sec3 div { width: 80%; }
+  .sec1 { font-size: x-large; padding-top: 100px; }
+}
+
+@media (max-width: 320px) {
+  .sec1 { font-size: medium; padding-top: 60px; }
+  .sec3 div { width: 95%; padding: 15px; }
+}
+
+/* ====================== SCROLL ANIMATION ====================== */
+.sec1, .sec2 > div, .sec3, .sec4 {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.visible-scroll {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}

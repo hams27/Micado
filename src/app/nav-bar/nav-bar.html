@@ -1,0 +1,50 @@
+<!-- =========================
+     NAVBAR RTL & RESPONSIVE
+========================= -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+
+    <!-- ===== Logo & Brand ===== -->
+    <a class="navbar-brand" routerLink="/home">
+      <img src="MICADO.png" alt="Logo" width="70" height="70">
+      Mikado Equipment
+    </a>
+
+    <!-- ===== Mobile Toggler ===== -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- ===== Navbar Links ===== -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <!-- Home -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">الرئيسية</a>
+        </li>
+
+        <!-- Products -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/fillter">المنتجات</a>
+        </li>
+
+        <!-- About -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about">حول</a>
+        </li>
+
+        <!-- Contact -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">تواصل معنا</a>
+        </li>
+      </ul>
+
+      <!-- ===== CTA Button ===== -->
+      <div class="d-flex">
+        <button class="btn me-2" routerLink="/contact">طلب خدمة</button>
+      </div>
+    </div>
+
+  </div>
+</nav>

@@ -1,0 +1,58 @@
+/* -------------------- P BASE STYLE -------------------- */
+p {
+    background-color: #1e1c1c;
+    margin: 0;
+    padding: 15px 20px;
+    height: auto; /* بديل 50px الثابت */
+    font-size: 1rem;
+}
+
+
+
+/* -------------------- 1440px -------------------- */
+@media (max-width: 1440px) {
+    p {
+        font-size: 1rem;
+        padding: 15px 18px;
+    }
+}
+
+
+
+/* -------------------- 1024px -------------------- */
+@media (max-width: 1024px) {
+    p {
+        font-size: 0.95rem;
+        padding: 14px 16px;
+    }
+}
+
+
+
+/* -------------------- 768px (Tablet) -------------------- */
+@media (max-width: 768px) {
+    p {
+        font-size: 0.9rem;
+        padding: 12px 14px;
+    }
+}
+
+
+
+/* -------------------- 425px (Mobile L) -------------------- */
+@media (max-width: 425px) {
+    p {
+        font-size: 0.85rem;
+        padding: 10px 12px;
+    }
+}
+
+
+
+/* -------------------- 320px (Mobile S) -------------------- */
+@media (max-width: 320px) {
+    p {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+    }
+}

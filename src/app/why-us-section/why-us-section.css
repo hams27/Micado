@@ -1,0 +1,67 @@
+.why-us {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 60px 20px;
+  color: whitesmoke;
+}
+
+.why-us > div {
+  flex: 1 1 45%;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+li{
+    margin-bottom: 5px;
+    width: max-content;
+}
+li:hover{
+    scale: 0.9 ;
+    color: #ff6f00;
+}
+.why-us > div:first-child { animation-name: fadeRight; }
+.why-us > div:last-child { animation-name: fadeLeft; }
+
+.why-us ul { padding-left: 20px; list-style-type: disc; column-count: 1; }
+.why-us .div2 { border: 1px solid #ff6f00; padding: 25px; border-radius: 15px; transition: transform 0.3s, box-shadow 0.3s; }
+.why-us .div2:hover { transform: scale(1.05); box-shadow: 0 0 20px #ff6f00; }
+
+@keyframes fadeRight { from {opacity:0; transform:translateX(30px);} to {opacity:1; transform:translateX(0);} }
+@keyframes fadeLeft { from {opacity:0; transform:translateX(-30px);} to {opacity:1; transform:translateX(0);} }
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+
+
+/* ---------------- Responsive ---------------- */
+
+/* 1440px */
+@media(max-width:1440px){
+    .why-us-section .served-sectors { width: 320px; padding: 25px; }
+}
+
+/* 1024px */
+@media(max-width:1024px){
+    .why-us-section > div { flex: 1 1 48%; }
+    .why-us-section .served-sectors { width: 300px; padding: 20px; }
+    .why-us-section .served-sectors ul { column-count: 2; column-gap: 15px; }
+}
+
+/* 768px */
+@media(max-width:768px){
+    .why-us-section { flex-direction: column; gap: 30px; }
+    .why-us-section > div { flex: 1 1 100%; }
+    .why-us-section .served-sectors { width: 90%; margin: 0 auto; }
+    .why-us-section .served-sectors ul { column-count: 1; }
+}
+
+/* 425px */
+@media(max-width:425px){
+    .why-us-section .served-sectors { width: 100%; padding: 15px; }
+    .why-us-section h1, .why-us-section h2 { font-size: 1.6em; }
+}
+
+/* 320px */
+@media(max-width:320px){
+    .why-us-section .served-sectors { width: 100%; padding: 10px; font-size: 0.9rem; }
+    .why-us-section h1, .why-us-section h2 { font-size: 1.4em; }
+}

@@ -1,0 +1,337 @@
+/* ================= Hero Section ================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: #111; /* خلفية دارك */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+/* النجوم */
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none ; /* النجوم مش هتتفاعل مع الماوس */
+}
+
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: orange;
+  border-radius: 50% ;
+  opacity: 0.8;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; transform: scale(0.3); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+/* نص الهيرو فوق النجوم */
+.hero-content {
+  padding-top: 50px;
+  position: relative; /* مهم جداً عشان يبقى فوق النجوم */
+  text-align: center;
+  color: white;
+  z-index: 10;
+  max-width: 900px;
+}
+img{
+    z-index: 10;
+position: relative;
+padding-top: 100px;
+}
+.hero-content h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  animation: fadeDown 1s ease forwards;
+}
+
+.hero-content p {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #ff6f00;
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff6f00;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid #ff6f00;
+  color: whitesmoke;
+}
+
+.btn-secondary:hover {
+  background-color: #ff6f00;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= Responsive ================= */
+@media(max-width:1024px){
+  .hero-content h1 { font-size: 2.5em; }
+  .hero-content p { font-size: 1.2em; }
+}
+
+@media(max-width:768px){
+  .hero-content h1 { font-size: 2.2em; }
+  .hero-content p { font-size: 1.1em; }
+}
+
+@media(max-width:425px){
+  .hero-content h1 { font-size: 1.8em; }
+  .hero-content p { font-size: 1rem; }
+}
+
+@media(max-width:320px){
+  .hero-content h1 { font-size: 1.6em; }
+  .hero-content p { font-size: 0.9rem; }
+}
+
+
+
+/* ===== Features Group ===== */
+.group {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 40px;
+  flex-wrap: wrap;
+}
+
+.group div {
+  width: 350px;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 1px 1px 10px gray;
+  opacity: 0;
+  transform: scale(0.85);
+  animation: pop 0.9s ease forwards;
+}
+
+/* تأخير متدرج لكل ميزة */
+.group div:nth-child(1) { animation-delay: 0.9s; }
+.group div:nth-child(2) { animation-delay: 1.1s; }
+.group div:nth-child(3) { animation-delay: 1.3s; }
+
+@keyframes pop {
+  0% { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Hover Effect على الميزات */
+.group div:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 18px #ff6f00;
+  transition: 0.3s ease;
+}
+
+/* ===== Logo Styling ===== */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.logo img {
+  border-radius: 15px;
+  box-shadow: 1px 1px 10px gray;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: logoFade 1.2s ease forwards;
+  animation-delay: 1.5s;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+@keyframes logoFade {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.logo img:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 0 25px #ff6f00;
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background-color: #0d0d0d; /* خلفية داكنة */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: whitesmoke;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  animation: fadeDown 1s ease forwards;
+}
+
+.hero-content p {
+  font-size: 1.3em;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.hero-buttons button {
+  padding: 12px 25px;
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.btn-contact {
+  background-color: #ff6f00;
+  color: #fff;
+}
+
+.btn-contact:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff6f00;
+}
+
+.btn-products {
+  background-color: transparent;
+  border: 2px solid #ff6f00;
+  color: #ff6f00;
+}
+
+.btn-products:hover {
+  background-color: #ff6f00;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* --------- نجوم --------- */
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #ff6f00;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 3s infinite alternate;
+}
+
+/* انيميشن توهج النجوم */
+@keyframes twinkle {
+  0% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(0.5); }
+}
+
+/* --------- Animations --------- */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+
+
+/* ===== Responsive ===== */
+@media(max-width:1024px) {
+  section h1 { font-size: 2.4em; }
+  .group div { width: 300px; }
+  .logo img { width: 400px; height: 400px; }
+
+}
+
+@media(max-width:768px) {
+  section { text-align: center; }
+  .group { flex-direction: column; align-items: center; }
+  .group div { width: 80%; margin-top: 20px; }
+  #contact, #products { margin: 20px; }
+  .logo img { width: 300px; height: 300px; }
+  .hero-content{display: inline-block !important;}
+    .hero-content h1 { font-size: 2em; }
+  .hero-content p { font-size: 1em; }
+  .hero-buttons button { width: 140px; padding: 10px; }
+}
+
+@media(max-width:425px) {
+  section h1 { font-size: 1.9em; }
+  .group div { width: 80%; padding: 20px; margin-top: 50px; }
+  #contact, #products { width: 130px; height: 45px; }
+  .logo img { width: 200px; height: 200px; }
+    .hero-content h1 { font-size: 1.6em; }
+  .hero-content p { font-size: 0.9em; }
+  .hero-buttons button { width: 120px; padding: 8px; }
+}
+
+@media(max-width:320px) {
+  section h1 { font-size: 1.7em; }
+  .group div { width: 85%; margin: 0; }
+  #contact, #products { width: 150px; height: 40px; }
+  .logo img { width: 200px; height: 200px; }
+}

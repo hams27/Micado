@@ -1,0 +1,95 @@
+/* ===== إعدادات عامة ===== */
+.contact-wrapper {
+  width: 100%;
+  padding: 120px 0 60px;
+  color: #fff;
+  font-family: "Tajawal", sans-serif;
+  text-align: center;
+}
+
+/* ===== العنوان ===== */
+.contact-header h1 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #E86A1F;
+  margin-bottom: 12px;
+}
+
+.contact-header p {
+  font-size: 18px;
+  opacity: 0.85;
+  margin-bottom: 50px;
+}
+
+/* ===== Grid للكروت ===== */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding: 0 25px;
+}
+
+/* ===== Glass Card ===== */
+.glass-card {
+  padding: 35px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: 0.3s ease;
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards;
+  animation-delay: var(--delay);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Hover Effect */
+.glass-card:hover {
+  transform: translateY(-6px);
+  border-color: #E86A1F;
+  box-shadow: 0 0 15px rgba(232, 106, 31, 0.35);
+}
+
+/* Icon */
+.glass-card i {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #E86A1F;
+}
+
+/* Title */
+.glass-card h3 {
+  margin: 8px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Text */
+.glass-card span {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* ===== أنيميشن دخول ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .contact-cards {
+    grid-template-columns: 1fr;
+  }
+}

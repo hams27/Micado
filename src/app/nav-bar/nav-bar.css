@@ -1,0 +1,148 @@
+/* =========================
+   Navbar Base
+========================= */
+.navbar {
+  background: transparent !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+  animation: navbarFade 1s ease forwards;
+}
+
+@keyframes navbarFade {
+  from { opacity: 0; transform: translateY(-25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Logo & Brand ===== */
+.navbar-brand {
+  color: #fff !important;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+}
+.navbar-brand img {
+  margin-inline-end: 10px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+.navbar-brand img:hover {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+/* ===== Navbar Links ===== */
+.navbar .nav-link {
+  color: #fff !important;
+  margin: 0 10px;
+  font-size: 16px;
+  position: relative;
+  transition: 0.3s ease;
+  text-align: right;
+}
+
+/* Underline Animation */
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: 0.3s;
+}
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+.navbar .nav-link:hover {
+  text-shadow: 0 0 10px #ff6f00;
+  color: #ff6f00 !important;
+}
+
+/* ===== Dropdown ===== */
+.navbar .dropdown-toggle {
+  color: white !important;
+  background: transparent !important;
+  border: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+.navbar .dropdown-toggle:hover {
+  text-shadow: 0 0 12px #ff6f00;
+  color: #ff6f00 !important;
+}
+.dropdown-menu {
+  z-index: 10000 !important;
+  position: absolute !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  margin-top: 12px;
+  padding: 10px 0;
+  animation: dropFade 0.4s ease;
+}
+.dropdown-item {
+  color: black !important;
+  padding: 10px 18px;
+  transition: 0.3s ease;
+}
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  text-shadow: 0 0 10px white;
+  transform: translateX(5px);
+}
+@keyframes dropFade {
+  from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ===== CTA Button ===== */
+.navbar .btn {
+  color: white;
+  background: transparent;
+  border-radius: 25px;
+  padding: 6px 18px;
+  border: 1px solid white;
+  box-shadow: 0 0 15px white;
+  transition: 0.3s ease;
+}
+.navbar .btn:hover {
+  background: #ff6f00;
+  transform: scale(1.05);
+}
+
+/* ===== Mobile Toggler ===== */
+.navbar-toggler {
+  border: 1px solid white;
+}
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 991px) {
+  .navbar .nav-link {
+    text-align: center;
+    margin: 10px 0;
+  }
+  .navbar .btn {
+    margin: 10px auto;
+  }
+  .navbar-brand img {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (max-width: 576px) {
+  .navbar-brand img {
+    width: 50px;
+    height: 50px;
+  }
+  .navbar .nav-link {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,38 @@
+  <section class="hero">
+  <!-- النجوم -->
+  <div class="stars">
+    <div *ngFor="let star of stars" 
+         class="star" 
+         [ngStyle]="{'top.%': star.top, 'left.%': star.left, 'animation-delay.s': star.delay}">
+    </div>
+  </div>
+
+  <!-- محتوى الهيرو -->
+  <div class="hero-content">
+    <h1>قوة اعتمادية لمشاريعك الصناعية</h1>
+    <p>نقدّم حلولاً متكاملة للمولدات، المضخات، والمعدات الإنشائية الصغيرة.</p>
+    <div class="hero-buttons">
+      <button routerLink="/contact" class="btn btn-primary">تواصل معنا</button>
+      <button routerLink="/fillter" class="btn btn-secondary">تصفح المنتجات</button>
+    </div>
+  </div>
+  <img src="MICADO.png" alt="" class="img-fluid">
+</section>
+<!-- ===== Features Section ===== -->
+<article class="sec3">
+  <div class="group">
+    <!-- ميزة 1 -->
+    <div>
+      جودة عالية
+    </div>
+    <!-- ميزة 2 -->
+    <div>
+      أداء طويل الأمد
+    </div>
+    <!-- ميزة 3 -->
+    <div>
+      خدمة ما بعد البيع
+    </div>
+  </div>
+
+</article>

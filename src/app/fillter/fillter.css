@@ -1,0 +1,224 @@
+/* ===== إعدادات عامة ===== */
+* {
+  box-sizing: border-box;
+  color: whitesmoke;
+}
+app-nav-bar{
+  z-index: 1;
+}
+.container{
+  padding-top: 150px !important;
+}
+.page {
+  display: flex ;
+  flex-direction: row-reverse ; /* الفلتر على اليمين */
+  align-items: flex-start;
+  gap: 20px;
+  direction: ltr; /* ترتيب النصوص داخل الصفحة */
+}
+.row{
+  justify-content: right;
+}
+.text{
+  color: whitesmoke !important;
+}
+
+/* ===== Sidebar الفلتر ===== */
+.fillter {
+  width: 250px;
+  flex-shrink: 0;
+  direction: rtl; /* لتنسيق النصوص بالعربية */
+}
+
+/* ===== منتجات الصفحة ===== */
+#products {
+  flex: 1;
+}
+
+/* ===== عناصر الفلتر ===== */
+.form-group {
+  margin-bottom: 5px;
+}
+label {
+  padding-left: 10px;
+}
+h6 {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+h4#burgundy {
+  color: #ff6f00;
+}
+
+/* ===== Select dropdown ===== */
+select.form-control {
+  width: 100%;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  appearance: none;
+  cursor: pointer;
+}
+select.form-control:focus {
+  outline: none;
+  border-color: #ff6f00;
+}
+
+/* ===== كروت المنتجات ===== */
+.card {
+  color: black;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-body {
+  padding: 10px;
+  text-align: right;
+}
+.card-body h5 b{
+  color: black !important;
+}
+
+/* ===== زرار المنتجات ===== */
+.btn {
+  border: 1px solid #ff6f00;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #ff6f00;
+  transition: 0.2s;
+}
+.btn:hover {
+  background-color: #ff6f00;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ===== مودال المنتجات ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1010;
+}
+.modal-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  z-index: 1010;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  overflow-y: auto;
+  max-height: 90vh;
+  padding-top: 70px;
+}
+.modal-title {
+  margin-top: 0;
+  color: #ff6f00;
+}
+.modal-price {
+  font-weight: bold;
+  margin: 10px 0;
+  color: black !important;
+}
+.modal-desc {
+  margin: 10px 0;
+  color: black !important;
+  white-space: pre-wrap;  /* التفاف الأسطر */
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+/* ===== خصائص المنتج الديناميكية ===== */
+.product-specs {
+  display: flex;
+  flex-direction: column; /* كل خاصية في سطر جديد */
+  gap: 6px;
+  margin: 10px 0;
+}
+.product-specs .spec-value {
+  display: block;
+  white-space: normal;    /* التفاف النصوص الطويلة */
+  word-break: break-word; /* كسر الكلمات الطويلة */
+  margin-top: 2px;        /* مسافة بسيطة بعد اسم الخاصية */
+  color: black !important;
+}
+
+/* ===== Carousel داخل المودال ===== */
+.carousel {
+  position: relative;
+  margin-bottom: 10px;
+}
+.modal-img {
+  width: 100%;
+  height: max-content;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background: rgba(255,255,255,0.7);
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: black;
+}
+.arrow.left {
+  left: 5px;
+}
+.arrow.right {
+  right: 5px;
+}
+.close-btn {
+  background-color: #ff6f00;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.product-specs {
+  margin-top: 15px;
+}
+
+.spec-item {
+  margin-bottom: 12px;
+}
+
+.spec-label {
+  font-weight: bold;
+  color: #ff6f00;
+  margin-bottom: 3px;
+  display: block;
+}
+
+.spec-value {
+  color: black;
+  display: block;
+  padding-right: 5px;
+}
