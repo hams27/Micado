@@ -60,8 +60,36 @@ li:hover{
     .why-us-section h1, .why-us-section h2 { font-size: 1.6em; }
 }
 
-/* 320px */
-@media(max-width:320px){
-    .why-us-section .served-sectors { width: 100%; padding: 10px; font-size: 0.9rem; }
-    .why-us-section h1, .why-us-section h2 { font-size: 1.4em; }
+@media (max-width: 320px) {
+  .why-us {
+    flex-direction: column;      /* ترتيب العناصر فوق بعض */
+    gap: 15px;                   /* تقليل المسافة بين العناصر */
+    padding: 30px 10px;          /* تقليل البادينج الكلي */
+  }
+
+  .why-us > div {
+    flex: 1 1 100%;              /* العناصر تشغل كامل العرض */
+    margin: 0 auto;
+  }
+
+  .why-us .div2 {
+    padding: 15px;               /* تقليل البادينج داخل البوكس */
+    font-size: 0.85rem;          /* تصغير النصوص */
+  }
+
+  .why-us h1, .why-us h2 {
+    font-size: 1.3em;            /* تصغير العناوين */
+    text-align: center;
+  }
+
+  .why-us ul {
+    /* width: 80%; */
+    /* padding-left: 15px; */
+    column-count: 1;             /* عمود واحد فقط */
+    font-size: 0.85rem;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
 }

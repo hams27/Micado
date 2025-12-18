@@ -34,6 +34,77 @@ app-nav-bar{
 #products {
   flex: 1;
 }
+.filter-btn {
+  display: none;
+  padding: 10px 20px;
+  background: #ff6f00;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative; /* ليس fixed */
+  margin: 10px auto;
+}
+
+@media(max-width:768px){
+  .filter-btn {
+    display: block;
+
+  }
+  .container{
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+  }
+}
+
+
+/* popup overlay */
+.filter-popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 60px;
+}
+
+/* محتوى popup */
+.filter-content {
+  background: #111;
+  color: white;
+  width: 90%;
+  max-width: 350px;
+  border-radius: 15px;
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 80vh;
+  position: relative;
+}
+
+/* زراغلاق */
+.filter-content .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* ترتيب الفلاتر داخل popup */
+.mobile-filter-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-filter-items label {
+  display: block;
+  cursor: pointer;
+}
 
 /* ===== عناصر الفلتر ===== */
 .form-group {

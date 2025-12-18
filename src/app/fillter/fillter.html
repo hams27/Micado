@@ -1,10 +1,50 @@
 <app-nav-bar></app-nav-bar>
+<article>
+  <br><br><br><br>
+<!-- ====== زرار الفلتر للموبايل ====== -->
+<button class="filter-btn" (click)="toggleFilter()">تصفية المنتجات</button>
+
+<!-- ====== Popup الفلتر للموبايل ====== -->
+<div class="filter-popup" *ngIf="showFilterPopup">
+  <div class="filter-content">
+    <span class="close-btn" (click)="toggleFilter()">&times;</span>
+    <div class="mobile-filter-items">
+      <!-- Main Categories -->
+      <div *ngFor="let main of mainCategories">
+        <label>
+          <input type="checkbox" [value]="main" (change)="toggleMain(main,$event)"> {{ main }}
+        </label>
+        <div *ngIf="selectedMains?.includes(main) && subCategoriesMap[main]?.length">
+          <div *ngFor="let sub of subCategoriesMap[main]">
+            <label>
+              <input type="checkbox" [value]="sub" (change)="toggleSub(main,sub,$event)"> {{ sub }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brands -->
+      <div *ngFor="let brand of allBrands">
+        <label>
+          <input type="checkbox" (change)="toggleBrand(brand,$event)"> {{ brand }}
+        </label>
+        <div *ngIf="selectedBrands.includes(brand) && brandMainMap[brand]?.length">
+          <div *ngFor="let main of brandMainMap[brand]">
+            <label>
+              <input type="checkbox" (change)="toggleBrandMain(brand,main,$event)"> {{ main }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <article>
   <div class="container">
     <div class="row page">
 
-      <!-- ====== Sidebar الفلتر ====== -->
+      <!-- ====== Sidebar الفلتر (ديسكتوب) ====== -->
       <div class="col-lg-3 d-none d-lg-block fillter">
         <div class="border-bottom pb-2">
           <h4 id="burgundy">تصفية المنتجات</h4>
@@ -12,114 +52,43 @@
 
         <!-- التصنيف الرئيسي -->
         <div class="py-2 border-bottom">
-          <h6 class="font-weight-bold">الأنواع الرئيسية  </h6>
+          <h6 class="font-weight-bold">الأنواع الرئيسية</h6>
           <form>
             <hr>
-
-
             <div *ngFor="let main of mainCategories" class="form-group">
-              <!-- Main Checkbox -->
               <label class="d-block">
-                <input
-                  type="checkbox"
-                  [value]="main"
-                  (change)="toggleMain(main, $event)">
-                {{ main }}
+                <input type="checkbox" [value]="main" (change)="toggleMain(main, $event)"> {{ main }}
               </label>
-
-              <!-- Sub Categories -->
-              <div
-                class="ml-3 mt-2"
-                *ngIf="selectedMains?.includes(main) && subCategoriesMap[main]?.length">
+              <div class="ml-3 mt-2" *ngIf="selectedMains?.includes(main) && subCategoriesMap[main]?.length">
                 <div *ngFor="let sub of subCategoriesMap[main]" class="form-group">
-                  <!-- Sub Checkbox -->
                   <label class="d-block">
-                    <input
-                      type="checkbox"
-                      [value]="sub"
-                      (change)="toggleSub(main, sub, $event)">
-                    {{ sub }}
+                    <input type="checkbox" [value]="sub" (change)="toggleSub(main, sub, $event)"> {{ sub }}
                   </label>
-
-                  <!-- Sub-Sub Categories -->
-                  <div
-                    class="ml-3 mt-2"
-                    *ngIf="selectedSubs[main]?.includes(sub) && subSubCategoriesMap[sub]?.length">
-                    <div *ngFor="let s of subSubCategoriesMap[sub]" class="form-group">
-                      <label class="d-block">
-                        <input
-                          type="checkbox"
-                          [value]="s"
-                          (change)="toggleSubSub(sub, s, $event)">
-                        {{ s }}
-                      </label>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </form>
         </div>
 
-      <!-- العلامات التجارية -->
-<div class="py-2 border-bottom">
-  <h6 class="font-weight-bold">العلامات التجارية</h6>
-  <form>
-    <hr>
-    <!-- المستوى الأول: اسم البراند -->
-    <div *ngFor="let brand of allBrands" class="form-group">
-      <label class="d-block">
-        <input
-          type="checkbox"
-          (change)="toggleBrand(brand, $event)">
-        <strong>{{ brand }}</strong>
-      </label>
-
-      <!-- المستوى الثاني: brandMain -->
-      <div
-        class="ml-3 mt-2"
-        *ngIf="selectedBrands.includes(brand) && brandMainMap[brand]?.length">
-        <div *ngFor="let main of brandMainMap[brand]" class="form-group">
-          <label class="d-block">
-            <input
-              type="checkbox"
-              (change)="toggleBrandMain(brand, main, $event)">
-            {{ main }}
-          </label>
-
-          <!-- المستوى الثالث: brandSub -->
-          <div
-            class="ml-3 mt-2"
-            *ngIf="selectedBrandMains[brand]?.includes(main) && brandSubMap[main]?.length">
-            <div *ngFor="let sub of brandSubMap[main]" class="form-group">
+        <!-- العلامات التجارية -->
+        <div class="py-2 border-bottom">
+          <h6 class="font-weight-bold">العلامات التجارية</h6>
+          <form>
+            <hr>
+            <div *ngFor="let brand of allBrands" class="form-group">
               <label class="d-block">
-                <input
-                  type="checkbox"
-                  (change)="toggleBrandSub(main, sub, $event)">
-                {{ sub }}
+                <input type="checkbox" (change)="toggleBrand(brand, $event)"> <strong>{{ brand }}</strong>
               </label>
-
-              <!-- المستوى الرابع: brandSubSub -->
-              <div
-                class="ml-3 mt-2"
-                *ngIf="selectedBrandSubs[main]?.includes(sub) && brandSubSubMap[sub]?.length">
-                <div *ngFor="let s of brandSubSubMap[sub]" class="form-group">
+              <div class="ml-3 mt-2" *ngIf="selectedBrands.includes(brand) && brandMainMap[brand]?.length">
+                <div *ngFor="let main of brandMainMap[brand]" class="form-group">
                   <label class="d-block">
-                    <input
-                      type="checkbox"
-                      (change)="toggleBrandSubSub(sub, s, $event)">
-                    {{ s }}
+                    <input type="checkbox" (change)="toggleBrandMain(brand, main, $event)"> {{ main }}
                   </label>
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
-      </div>
-    </div>
-  </form>
-</div>
-
       </div> <!-- end sidebar -->
 
       <!-- ====== المنتجات ====== -->
@@ -132,25 +101,21 @@
           </div>
 
           <!-- قائمة المنتجات -->
-         <div class="row">
-  <div *ngFor="let product of filteredProducts" class="col-lg-4 col-md-6 col-sm-10 mb-4">
-    <div class="card">
-      <!-- صورة المنتج -->
-      <img class="card-img-top" [src]="product.imageProduct" [alt]="product.name">
-
-      <!-- معلومات المنتج -->
-      <div class="card-body">
-        <h5><b>{{ product.name }} : اسم المنتج </b></h5>
-        <div class="modal-desc">{{ product['brand'] }} : الماركة</div>
-        <div class="d-flex flex-row my-2">
-          <div class="text-muted"> السعر : {{ product.price }} ريال</div>
-        </div>
-        <button class="btn w-100 rounded my-2" (click)="openModal(product)">معلومات أكثر</button>
-      </div>
-    </div>
-  </div>
-</div>
-
+          <div class="row">
+            <div *ngFor="let product of filteredProducts" class="col-lg-4 col-md-6 col-sm-10 mb-4">
+              <div class="card">
+                <img class="card-img-top" [src]="product.imageProduct" [alt]="product.name">
+                <div class="card-body">
+                  <h5><b>{{ product.name }} : اسم المنتج </b></h5>
+                  <div class="modal-desc">{{ product['brand'] }} : الماركة</div>
+                  <div class="d-flex flex-row my-2">
+                    <div class="text-muted"> السعر : {{ product.price }} ريال</div>
+                  </div>
+                  <button class="btn w-100 rounded my-2" (click)="openModal(product)">معلومات أكثر</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </section>
       </div> <!-- end products -->
@@ -158,42 +123,29 @@
     </div> <!-- end row page -->
   </div> <!-- end container -->
 </article>
+
 <!-- ================== MODAL ================== -->
 <div class="modal-overlay" *ngIf="selectedProduct" (click)="closeModal()"></div>
-
 <div class="modal-box" *ngIf="selectedProduct">
-  <!-- Carousel صور المنتج -->
   <div class="carousel" *ngIf="selectedProduct?.images?.length">
-    <img class="modal-img" [src]="selectedProduct!.images![currentImageIndex]" alt="product"  />
+    <img class="modal-img" [src]="selectedProduct!.images![currentImageIndex]" alt="product" />
     <button class="arrow right" (click)="nextImage()">&#10094;</button>
     <button class="arrow left" (click)="prevImage()">&#10095;</button>
   </div>
 
-  <!-- تفاصيل المنتج -->
   <h2 class="modal-title">{{ selectedProduct.name }}</h2>
   <p class="modal-price">{{ selectedProduct.price }} ريال</p>
 
-  <!-- تفاصيل المنتج الديناميكية -->
-<div class="product-specs">
-
-  <ng-container *ngFor="let spec of productSpecsConfig">
-    <div class="spec-item" *ngIf="selectedProduct && selectedProduct[spec.key]">
-
-      <div class="spec-label">
-        {{ spec.label }}
+  <div class="product-specs">
+    <ng-container *ngFor="let spec of productSpecsConfig">
+      <div class="spec-item" *ngIf="selectedProduct && selectedProduct[spec.key]">
+        <div class="spec-label">{{ spec.label }}</div>
+        <div class="spec-value">{{ selectedProduct[spec.key] }}</div>
       </div>
-      <div class="spec-value">
-        {{ selectedProduct[spec.key] }}
-      </div>
+    </ng-container>
+  </div>
 
-    </div>
-  </ng-container>
-
-</div>
-
-زر إغلاق المودال -->
   <button class="close-btn" (click)="closeModal()">إغلاق</button>
 </div>
-
-
+</article>
 <app-footer></app-footer>

@@ -1,14 +1,59 @@
 /* ================= Hero Section ================= */
 .hero {
   position: relative;
-  height: 100vh;
-  background: #111; /* خلفية دارك */
+  min-height: 100vh;
+  background: #111;
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between; /* محتوى يمين وصورة شمال */
   padding: 0 20px;
+  flex-wrap: wrap; /* يسمح بالانخفاض في الشاشات الصغيرة */
+   padding-top: 80px; /* يزيد المسافة من أعلى الهيرو كله */
+  padding-bottom: 50px; 
 }
+
+.hero-content {
+  flex: 1;
+  position: relative;
+  z-index: 10;
+  padding: 50px 20px 0 20px;
+  color: white;
+  text-align: left;
+  max-width: 600px;
+}
+
+.hero img {
+  flex: 1;
+  max-width: 100%;
+  height: auto;
+  z-index: 10;
+  position: relative;
+  padding: 0;
+}
+
+/* ===== Responsive Small Screens ===== */
+@media(max-width:425px) {
+  .hero {
+    flex-direction: column; /* المحتوى فوق، الصورة تحت */
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .hero-content {
+    order: 1;
+    text-align: center;
+    padding: 0 10px 20px 10px;
+  }
+
+  .hero img {
+    order: 2;
+    width: 80%; /* تصغير الصورة */
+    margin: 20px auto 0 auto;
+    padding: 0; /* إزالة padding-top */
+  }
+}
+
 
 /* النجوم */
 .stars {
@@ -36,19 +81,7 @@
 }
 
 /* نص الهيرو فوق النجوم */
-.hero-content {
-  padding-top: 50px;
-  position: relative; /* مهم جداً عشان يبقى فوق النجوم */
-  text-align: center;
-  color: white;
-  z-index: 10;
-  max-width: 900px;
-}
-img{
-    z-index: 10;
-position: relative;
-padding-top: 100px;
-}
+/*  */
 .hero-content h1 {
   font-size: 3em;
   margin-bottom: 20px;
@@ -121,17 +154,39 @@ padding-top: 100px;
   .hero-content h1 { font-size: 2.2em; }
   .hero-content p { font-size: 1.1em; }
 }
+/* ===== Hero Padding for Small Screens ===== */
+@media (max-width: 425px) {
+  .hero {
+    padding-top: 100px; /* زيادة المسافة من أعلى */
+    padding-bottom: 50px;
+  }
 
-@media(max-width:425px){
-  .hero-content h1 { font-size: 1.8em; }
-  .hero-content p { font-size: 1rem; }
+  .hero-content {
+    margin-top: 0; /* إزالة أي margin زائد */
+  }
 }
 
-@media(max-width:320px){
-  .hero-content h1 { font-size: 1.6em; }
-  .hero-content p { font-size: 0.9rem; }
+@media (max-width: 375px) {
+  .hero {
+    padding-top: 120px; /* شوية زيادة عشان يظهر المحتوى */
+    padding-bottom: 40px;
+  }
 }
 
+@media (max-width: 325px) {
+  .hero {
+    padding-top: 140px; /* أعلى مسافة للشاشات الصغيرة جدًا */
+    padding-bottom: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5em; /* تصغير النص لو يحتاج */
+  }
+
+  .hero-content p {
+    font-size: 0.85em;
+  }
+}
 
 
 /* ===== Features Group ===== */

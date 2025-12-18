@@ -5,7 +5,7 @@
     <div *ngFor="let product of products">
       <img [src]="product.imageCategory" alt="" width="50" height="50">
       <h3>{{ product.mainCategory }}</h3>
-      <button class="btn" routerLink="/fillter" (click)="goToFilterByCategory(product.mainCategory)">
+      <button class="btn" (click)="goToFilterByCategory(product.mainCategory)">
         تصفح {{ product.mainCategory }}
       </button>
     </div>

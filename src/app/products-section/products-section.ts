@@ -1,33 +1,37 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { ProductsService, Product } from '../products';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-products-section',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [CommonModule],
   templateUrl: './products-section.html',
   styleUrls: ['./products-section.css'],
 })
 export class ProductsSection {
 
-  // ✅ المنتجات الرئيسية اللي هنعرضها في الكروت
-  products: Product[] = [];
+  products: { mainCategory: string; imageCategory?: string }[] = [];
 
   constructor(
     private router: Router,
     private productsService: ProductsService
   ) {
-    // إحضار جميع المنتجات اللي ليها تصنيف رئيسي
-    this.products = this.productsService.getAllProducts().filter(p => !!p.mainCategory);
+    // ✅ جلب كل التصنيفات الرئيسية بدون تكرار
+    const allProducts = this.productsService.getAllProducts().filter(p => !!p.mainCategory);
+    const uniqueMainCategories = Array.from(new Set(allProducts.map(p => p.mainCategory)));
+
+    this.products = uniqueMainCategories.map(mainCat => ({
+      mainCategory: mainCat,
+      imageCategory: allProducts.find(p => p.mainCategory === mainCat)?.imageCategory
+    }));
   }
 
-  // ✅ دالة للتنقل لصفحة الفلتر مع تمرير اسم التصنيف الرئيسي
+  // ✅ التنقل لصفحة الفلترة مع تمرير الصنف الرئيسي
   goToFilterByCategory(category: string) {
     this.router.navigate(['/fillter'], {
       queryParams: { mainCategory: category }
     });
   }
-
 }
