@@ -7,6 +7,12 @@
 <!-- ====== Popup الفلتر للموبايل ====== -->
 <div class="filter-popup" *ngIf="showFilterPopup">
   <div class="filter-content">
+    <button type="button"
+  class="btn btn-success w-100 mb-3"
+  (click)="resetFilters()">
+  جميع المنتجات
+</button>
+
     <span class="close-btn" (click)="toggleFilter()">&times;</span>
     <div class="mobile-filter-items">
       <!-- Main Categories -->
@@ -48,7 +54,12 @@
       <div class="col-lg-3 d-none d-lg-block fillter">
         <div class="border-bottom pb-2">
           <h4 id="burgundy">تصفية المنتجات</h4>
-        </div>
+          <button type="button"
+          class="btn btn-outline-success w-100 my-2"
+          (click)="resetFilters()">
+          جميع المنتجات
+        </button>
+      </div>
 
         <!-- التصنيف الرئيسي -->
         <div class="py-2 border-bottom">

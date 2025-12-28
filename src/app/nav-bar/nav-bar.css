@@ -146,6 +146,35 @@
     font-size: 14px;
   }
 }
+@media (max-width: 375px){
+  .navbar-brand {
+    justify-content: center; /* توسيط اللوجو والنص */
+    margin-bottom: 5px;  
+       width: 40%;
+       font-size: small;
+  }
+
+  .navbar .nav-link {
+    text-align: center; 
+    margin: 5px 0;   /* مسافة بين الروابط */
+    width: 100%;     /* تغطي كامل عرض الهيدر */
+  }
+
+  .navbar .btn {
+    width: 90%;      /* يجعل الأزرار وسط الصفحة */
+    max-width: 150px;
+    margin: 5px auto;
+    padding: 6px 0;
+    font-size: 12px;
+  }
+
+  .dropdown-menu {
+    left: 0 !important;
+    right: 0 !important;
+    width: 90%;       /* يغطي تقريباً عرض الصفحة */
+    margin: 0 auto;   /* توسيط القائمة */
+  }
+}
 @media (max-width: 320px) {
   .navbar {
   

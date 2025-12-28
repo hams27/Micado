@@ -3,6 +3,7 @@
   box-sizing: border-box;
   color: whitesmoke;
 }
+
 app-nav-bar{
   z-index: 1;
 }
@@ -47,6 +48,9 @@ app-nav-bar{
 }
 
 @media(max-width:768px){
+  article{
+  padding-top: 40px;
+}
   .filter-btn {
     display: block;
 

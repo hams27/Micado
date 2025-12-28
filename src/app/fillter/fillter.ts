@@ -14,6 +14,24 @@ import { Footer } from '../footer/footer';
   imports: [CommonModule, FormsModule, NavBar, Footer]
 })
 export class Fillter implements OnInit {
+  // ==================== إعادة تعيين الفلاتر ====================
+resetFilters() {
+  this.selectedMains = [];
+  this.selectedSubs = {};
+  this.selectedSubSubs = {};
+
+  this.selectedBrands = [];
+  this.selectedBrandMains = {};
+  this.selectedBrandSubs = {};
+  this.selectedBrandSubSubs = {};
+
+  this.allSelected = false;
+
+  this.filteredProducts = [...this.products];
+  this.showFilterPopup = false;
+}
+
+
   showFilterPopup = false;
 
   toggleFilter() {
